@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from projeto.models import Produto
+from projeto.models import Produto
 
 def home_view(request):
     produto = request.GET.get("produto")
