@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('projeto.urls.HomeUrls')),
     path('produto/', include('projeto.urls.ProdutoUrls')),
-    path('usuario/', include('projeto.urls.UsuariosUrls')),
+    path('usuario/', include('projeto.urls.UsuarioUrls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
