@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
-from projeto.forms.AuthForm import LoginForm
+from django.contrib.auth import authenticate, login, logout
+from projeto.forms.AuthForm import LoginForm, RegisterForm
 
 def login_view(request):
     loginForm = LoginForm()
@@ -53,3 +53,7 @@ def register_view(request):
                     message = { 'type': 'danger', 'text': 'Um erro ocorreu ao tentar criar o usuário.' }
     context = { 'form': registerForm, 'message': message,'title': 'Registrar', 'button_text': 'Registrar', 'link_text': 'Login', 'link_href': '/login' }
     return render(request, template_name='auth/auth.html', context=context, status=200)
+
+def logout_view(request):
+    logout(request)
+    return redirect('/login')
